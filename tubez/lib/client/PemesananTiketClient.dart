@@ -7,20 +7,13 @@ import 'package:tubez/entity/pemesanan_tiket.dart';
 import 'package:tubez/client/apiURL.dart';
 
 class PemesananTiketClient {
-  // sesuaikan url dan endpoint dengan device yang digunakan
-
-  //untuk emulator
-  // static final String url = '10.0.2.2:8000';
-  // static final String endpoint = '/api';
-
   static Future<List<PemesananTiket>> getAllKursi(int idJadwalTayang) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? token = prefs.getString('auth_token');
 
       var response = await get(
-        Uri.https(url,
-            '$endpoint/kursi/all/$idJadwalTayang'), // Passing idJadwalTayang
+        Uri.parse('$url/kursi/all/$idJadwalTayang'),
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token"
@@ -39,9 +32,7 @@ class PemesananTiketClient {
         // Decode the JSON string inside each element
         List<String> kursiDipesan =
             List<String>.from(json.decode(encodedSeats));
-
-        // Assuming you also have the `idJadwalTayang` in your response, you can extract it here.
-        // If idJadwalTayang is not part of the response data, adjust accordingly.
+            
         return PemesananTiket(
           idJadwalTayang: idJadwalTayang,
           kursiDipesan: kursiDipesan,
@@ -82,13 +73,13 @@ class PemesananTiketClient {
 
       // Send POST request with headers and body
       var response = await post(
-        Uri.https(url, '$endpoint/pemesanantiket'),
+        Uri.parse('$url/pemesanantiket'),
         headers: {
           "Authorization": "Bearer $token",
           "Content-Type":
-              "application/json", // Set Content-Type header to application/json
+              "application/json",
         },
-        body: bodyData, // Send the JSON data in the body
+        body: bodyData,
       );
 
       print(response.statusCode);
@@ -114,7 +105,7 @@ class PemesananTiketClient {
       String? token = prefs.getString('auth_token');
 
       var response = await delete(
-        Uri.https(url, '$endpoint/pemesanantiket/delete/$id'),
+        Uri.parse('$url/pemesanantiket/delete/$id'),
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token"
@@ -124,13 +115,13 @@ class PemesananTiketClient {
       log("Response Status Code: ${response.statusCode}");
       log("Response Body: ${response.body}");
       if (response.statusCode == 200) {
-        return true; // Return true if delete was successful
+        return true;
       } else {
         throw Exception('Failed to delete seats');
       }
     } catch (e) {
       log("Error: $e");
-      return false; // Return false if an error occurred
+      return false;
     }
   }
 }

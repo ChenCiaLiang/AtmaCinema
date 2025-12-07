@@ -3,11 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< Updated upstream
-        'reference' => '24eb8c6ed2f72b4fbfea3ef6d3ed69a3a9a50fbe',
-=======
-        'reference' => '5eac00b6b661e6bd60dcbc0b06176573864b13c0',
->>>>>>> Stashed changes
+        'reference' => '6255df115c44ae002fd81258ba9aa50decf38a8d',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -392,11 +388,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< Updated upstream
-            'reference' => '24eb8c6ed2f72b4fbfea3ef6d3ed69a3a9a50fbe',
-=======
-            'reference' => '5eac00b6b661e6bd60dcbc0b06176573864b13c0',
->>>>>>> Stashed changes
+            'reference' => '6255df115c44ae002fd81258ba9aa50decf38a8d',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

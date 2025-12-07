@@ -30,7 +30,7 @@ class selectSeatScreen extends StatefulWidget {
 class _selectSeatScreenState extends State<selectSeatScreen> {
   late int idStudio;
   Set<SeatNumber> selectedSeats = Set();
-  Set<String> mySeats = {}; // This will store the translated seat numbers
+  Set<String> mySeats = {};
   late Future<List<PemesananTiket>> futureTransaksi;
   late int rows;
   late int cols;

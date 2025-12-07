@@ -24,8 +24,7 @@ class TransaksiClient {
 
       // Send POST request with headers and body
       var response = await post(
-        Uri.https(
-            url, '$endpoint/transaksi/create'), // Your Transaksi API endpoint
+        Uri.parse('$url/transaksi/create'), // Your Transaksi API endpoint
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',

@@ -15,7 +15,7 @@ class ReviewClient {
       String? token = await userClient.getToken();
 
       var response = await post(
-        Uri.https(url, '$endpoint/review/create'),
+        Uri.parse('$url/review/create'),
         headers: {
           'Authorization': 'Bearer $token',
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ class ReviewClient {
     String? token = await userClient.getToken();
     try {
       var response = await post(
-        Uri.https(url, '$endpoint/history/update/$idHistory'),
+        Uri.parse('$url/history/update/$idHistory'),
         headers: {
           'Authorization': 'Bearer $token',
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ class ReviewClient {
     String? token = await userClient.getToken();
     try {
       var response = await get(
-        Uri.https(url, '$endpoint/review/$idHistory'),
+        Uri.parse('$url/review/$idHistory'),
         headers: {
           'Authorization': 'Bearer $token',
           "Content-Type": "application/json",

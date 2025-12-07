@@ -300,10 +300,9 @@ class _RegisterViewState extends State<RegisterView> {
                       _showAlertDialog(context, () async {
                           // buat tanggalLahir yang awalnya dd/mm/yyyy jadi yyyy-mm-dd
                           DateTime tanggalLahir =
-                              parseDate(dateBirthController.text);
-                          DateFormat formatter = DateFormat('yyyy-MM-dd');
-                          String formatted = formatter.format(tanggalLahir);
-
+                            DateFormat('yyyy-MM-dd').parseStrict(dateBirthController.text);
+                          String formatted = DateFormat('yyyy-MM-dd').format(tanggalLahir);
+                          
                           User newUser = User(
                             username: firstNameController.text +
                                 " " +
@@ -345,7 +344,7 @@ class _RegisterViewState extends State<RegisterView> {
                             }
                           } catch (e) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Error Nya: $e')),
+                              SnackBar(content: Text('Error: $e')),
                             );
                           }
                       });
